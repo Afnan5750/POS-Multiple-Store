@@ -1,0 +1,102 @@
+/* Modal Overlay */
+.hint-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.hint-modal-content {
+  background: white;
+  padding: 20px;
+  width: 750px !important;
+  max-width: 90%;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal Title */
+.hint-modal-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #1e1e2f;
+}
+
+/* Two-column layout for multiple pages */
+.shortcut-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Page Titles */
+.page-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1e1e2f;
+  margin-bottom: 8px;
+  border-bottom: 2px solid #1e1e2f;
+  padding-bottom: 5px;
+}
+
+/* Shortcut List */
+.shortcut-list {
+  list-style: none;
+  padding: 0;
+}
+
+.shortcut-list li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #f8f8f8;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border-left: 4px solid #1e1e2f;
+}
+
+.modal-label {
+  font-weight: bold;
+  color: #1e1e2f;
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 20px;
+  color: #777;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: red;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

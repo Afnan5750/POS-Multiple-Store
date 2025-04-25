@@ -1,0 +1,97 @@
+/* AdminLogin.css */
+
+.admin-login-container {
+  position: relative;
+  margin: 90px auto;
+  padding: 20px;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  overflow: visible;
+}
+
+.login-image-wrapper {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+}
+
+.login-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #fff; /* White border around image */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.login-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #1e1e2f;
+}
+
+.login-subtext {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.login-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.login-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1e1e2f;
+  text-align: left;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  font-size: 16px;
+}
+
+.login-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 2px solid #1e1e2f;
+  border-radius: 50px;
+  background-color: #1e1e2f;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: transparent;
+  color: #1e1e2f;
+}
+
+.login-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

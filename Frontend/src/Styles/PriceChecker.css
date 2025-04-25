@@ -1,0 +1,88 @@
+/* Main Container */
+.price-checker-container {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Heading */
+.heading-text {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1e1e2f;
+}
+
+/* Input Group */
+.input-group-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* Input Labels */
+.input-label-text {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Input Fields */
+.input-field-box {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  font-size: 16px;
+  transition: border 0.3s ease-in-out;
+}
+
+/* Dropdown List */
+.dropdown-list {
+  padding: 0;
+}
+
+/* Product Display Section */
+.product-display-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+}
+
+/* Product Details */
+.product-details {
+  flex: 1;
+}
+
+.product-name,
+.product-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Product Image */
+.product-image-container {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.product-image-display {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}

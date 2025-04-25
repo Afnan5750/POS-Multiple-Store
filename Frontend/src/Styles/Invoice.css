@@ -1,0 +1,137 @@
+.invoice-container {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.invoice-search {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.invoice-search-box {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  font-size: 14px;
+  transition: width 0.3s ease-in-out;
+  width: 200px;
+}
+
+.invoice-search-box:focus {
+  width: 230px;
+  outline: none;
+  border-color: #3a3a5f;
+}
+
+.custom-modal-content {
+  width: 600px !important;
+}
+
+/* Invoice Header */
+.custom-invoice-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.custom-invoice-header h2 {
+  margin: 0;
+  color: #1e1e2f;
+}
+
+.custom-invoice-header p {
+  margin: 2px 0;
+  color: #1e1e2f;
+}
+
+/* Invoice Details */
+.custom-invoice-details {
+  margin-bottom: 15px;
+}
+
+/* Invoice Info - Side by Side */
+.custom-invoice-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.custom-invoice-flex p {
+  margin: 5px 0;
+  font-size: 14px;
+  flex: 1;
+  color: #1e1e2f;
+}
+
+/* Divider */
+.custom-divider {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin: 15px 0;
+}
+
+/* Invoice Table */
+.custom-invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.custom-invoice-table th,
+.custom-invoice-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.custom-table-header {
+  background: #1e1e2f;
+  color: white;
+  font-weight: bold;
+}
+
+.custom-table-row:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.custom-table-td {
+  color: #1e1e2f;
+}
+
+/* Invoice Total */
+.custom-invoice-total {
+  text-align: right;
+  margin-top: 15px;
+}
+
+.custom-invoice-total h3 {
+  color: #1e1e2f;
+}
+
+/* Utility Classes */
+.custom-text-center {
+  text-align: center;
+}
+
+.custom-text-right {
+  text-align: right;
+}
+/* Modal Content */
+.custom-modal-content {
+  position: relative !important;
+  text-align: left;
+}
+
+/* Close Button */
+.custom-modal-close {
+  position: absolute !important;
+  top: 12px !important;
+  right: 18px;
+}
+
+.custom-modal-close:hover {
+  color: #d9534f;
+}

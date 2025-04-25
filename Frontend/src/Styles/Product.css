@@ -1,0 +1,293 @@
+.product-table-container {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.table-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #1e1e2f;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: transparent; /* Transparent background */
+  border: 2px solid #333; /* Added solid border */
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 10px;
+  border: 1px solid #333; /* Darker border for better visibility */
+}
+
+.custom-table th {
+  background-color: #4caf50;
+  color: white;
+  text-transform: uppercase;
+}
+
+.custom-table tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.05); /* Light transparent alternate row */
+}
+
+.custom-table tr:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Slight hover effect */
+}
+
+.custom-table td {
+  color: #333;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Table Controls (Under Heading) */
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.button-dropdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+
+.filter-dropdown {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  border-radius: 50px;
+}
+
+/* Add New Product Button */
+.add-button {
+  background-color: #1e1e2f;
+  color: white;
+  border: 2px solid #1e1e2f;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: transparent;
+  color: #1e1e2f;
+}
+
+/* Search Box */
+.search-box {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  font-size: 14px;
+  transition: width 0.3s ease-in-out;
+  width: 200px;
+}
+
+.search-box:focus {
+  width: 230px;
+  outline: none;
+  border-color: #3a3a5f;
+}
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn,
+.delete-btn,
+.view-btn,
+.print-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #1e1e2f;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 330px !important;
+  max-height: 90vh;
+  overflow-y: auto;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content::-webkit-scrollbar {
+  display: none;
+}
+
+.modal-close {
+  position: fixed;
+  top: 7%;
+  right: 36%;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 0px 10px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.modal-title {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #1e1e2f;
+}
+
+.modal-text,
+.modal-label {
+  font-size: 16px;
+  color: #1e1e2f;
+}
+
+.modal-image {
+  width: 295px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+}
+
+.modal-submit-btn,
+.add-product-btn {
+  width: 100%;
+  background-color: #1e1e2f;
+  color: white;
+  border: 2px solid #1e1e2f;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.modal-submit-btn:hover,
+.add-product-btn :hover {
+  background-color: transparent;
+  color: #1e1e2f;
+}
+
+.image-preview {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.preview-img {
+  max-width: 100%;
+  height: 220px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+.input-group {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+}
+
+.floating-label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  background: white;
+  padding: 0 5px;
+  color: #888;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.input-group.focused .floating-label {
+  top: 5px;
+  font-size: 12px;
+  color: #1e1e2f;
+}
+
+.highlight {
+  font-weight: bold;
+}
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+/* Dropdown List */
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 1000;
+  padding: 8px 0;
+}
+
+/* Dropdown Items */
+.dropdown-list li {
+  padding: 12px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid #eee;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.dropdown-list li:hover {
+  background: #1e1e2f;
+  color: white;
+}
+
+.dropdown-list li.active {
+  background-color: #1e1e2f;
+  color: white;
+}

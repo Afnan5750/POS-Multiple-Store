@@ -1,0 +1,261 @@
+.sales-container {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.heading-text {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1e1e2f;
+}
+
+.input-group-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  position: relative;
+  width: 100%;
+}
+
+.input-label-text {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #1e1e2f;
+}
+
+.input-field-box {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  font-size: 16px;
+}
+
+/* Full Width Input Fields */
+.full-width-container {
+  width: 100%;
+}
+
+/* Search and Image Container */
+.search-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%; /* Places dropdown below the input */
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  max-height: 200px; /* Allows scrolling when there are many items */
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensures dropdown stays above other elements */
+  padding: 0;
+  list-style: none;
+  margin-top: 5px; /* Add space between input and dropdown */
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-item.active {
+  background-color: #1e1e2f;
+  color: white;
+}
+
+/* Product Image Box */
+.product-image-wrapper {
+  width: 120px;
+  height: 120px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-image-box {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Customer Details - One Line Layout */
+.customer-details-container {
+  display: flex;
+  gap: 15px;
+}
+
+.half-width-box {
+  width: 50%;
+}
+/* Cart Table Styles */
+.cart-container {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #1e1e2f;
+  background-color: #f9f9f9;
+}
+
+.cart-heading {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #1e1e2f;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-header {
+  background-color: #1e1e2f;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.cart-row {
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item-name,
+.cart-item-price {
+  padding: 10px;
+}
+
+.quantity-input {
+  width: 60px;
+  padding: 6px;
+  text-align: center;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #f9fafb;
+  outline: none;
+}
+
+.remove-btn {
+  background-color: transparent;
+  color: #1e1e2f;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.cart-total {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: right;
+}
+
+/* Search, Button, and Image in One Line */
+.search-cart-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.input-group-container {
+  flex-grow: 1;
+}
+
+.add-to-cart-btn {
+  width: 20%;
+  background-color: #1e1e2f;
+  color: white;
+  border: 2px solid #1e1e2f;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: transparent;
+  color: #1e1e2f;
+}
+
+.product-image-wrapper {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-image-box {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.pay-btn {
+  margin-top: 15px;
+}
+.confirm-btn {
+  width: 100%;
+  background-color: #1e1e2f;
+  color: white;
+  border: 2px solid #1e1e2f;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.confirm-btn:hover {
+  background-color: transparent;
+  color: #1e1e2f;
+}
+
+.custom-modal-close {
+  top: 25% !important;
+}
+.disabled-btn {
+  background-color: #ccc !important;
+  color: #1e1e2f !important;
+  cursor: not-allowed !important;
+}
+.shortcut-box {
+  margin-left: auto;
+  font-size: 12px;
+  color: #555;
+  background: #e9ecef;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.billedBy {
+  display: none;
+}

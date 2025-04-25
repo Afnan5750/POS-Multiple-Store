@@ -1,0 +1,14 @@
+.low-stock-table-container {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.table-controls-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+.out-of-stock {
+  color: red;
+  font-weight: bold;
+}

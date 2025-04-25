@@ -1,0 +1,71 @@
+.detail-container {
+  position: relative;
+  margin: 25px auto;
+  padding: 20px;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  overflow: visible;
+}
+
+.detail-tagline {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1e1e2f;
+}
+
+.detail-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.detail-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1e1e2f;
+}
+
+.detail-input,
+.detail-file-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  font-size: 16px;
+}
+
+.detail-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.detail-save-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 2px solid #1e1e2f;
+  border-radius: 50px;
+  background-color: #1e1e2f;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.detail-save-btn:hover {
+  background-color: transparent;
+  color: #1e1e2f;
+}
+.warning-message {
+  color: orange;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+}

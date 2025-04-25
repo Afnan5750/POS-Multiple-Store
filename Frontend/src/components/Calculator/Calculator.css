@@ -1,0 +1,119 @@
+/* Modal Overlay */
+.calculator-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Modal Content */
+.calculator-modal-content {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+/* Modal Title */
+.calculator-modal-title {
+  margin-bottom: 12px;
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Calculator Display */
+.calculator-display {
+  background: #2a2a2a;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  text-align: right;
+  font-weight: bold;
+}
+
+/* Input Display */
+.calculator-input {
+  width: 100%;
+  height: 55px;
+  font-size: 1.6rem;
+  text-align: right;
+  border: none;
+  background: transparent;
+  color: white;
+  outline: none;
+  padding-right: 12px;
+}
+
+/* Result Display */
+.calculator-result {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+/* Calculator Grid */
+.calculator-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* Calculator Buttons */
+.calculator-btn {
+  background: #333;
+  color: white;
+  border: none;
+  font-size: 1.4rem;
+  padding: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+.calculator-btn:hover {
+  background: #555;
+  color: black;
+}
+
+/* Operator Buttons */
+.calculator-btn.operator {
+  background: #ff9500;
+}
+
+.calculator-btn.operator:hover {
+  background: #ffb84d;
+}
+
+/* Equals Button */
+.calculator-btn.equals {
+  background: #34c759;
+}
+
+.calculator-btn.equals:hover {
+  background: #5cd77e;
+}
+
+/* Clear Button */
+.calculator-btn.clear {
+  background: red;
+}
+
+.calculator-btn.clear:hover {
+  background: #ff6666;
+}
+
+/* Active Button Effect */
+.calculator-btn:active {
+  transform: scale(0.95);
+}
