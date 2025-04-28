@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { FaUsers, FaUserTimes, FaUserCheck, FaStore } from "react-icons/fa";
+import {
+  FaUsers,
+  FaUserTimes,
+  FaUserCheck,
+  FaStore,
+  FaClock,
+} from "react-icons/fa";
 import AdminSidebar from "./AdminSidebar";
 import "./AdminDashboard.css";
 
@@ -63,7 +69,7 @@ const AdminDashboard = () => {
             {/* Card for Pending Requests */}
             <div className="dashboard-card">
               <div className="dashboard-icon-container">
-                <FaUserTimes className="dashboard-icon pending-requests" />
+                <FaClock className="dashboard-icon pending-requests" />
               </div>
               <h3 className="dashboard-card-title">{pendingRequests}</h3>
               <p className="dashboard-card-text">Pending Requests</p>

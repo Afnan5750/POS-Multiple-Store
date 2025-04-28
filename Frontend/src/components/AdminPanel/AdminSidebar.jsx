@@ -2,8 +2,8 @@ import React from "react";
 import {
   FaUsers,
   FaClock,
-  FaCheckCircle,
-  FaBan,
+  FaUserCheck,
+  FaUserTimes,
   FaSignOutAlt,
   FaTachometerAlt,
   FaStore,
@@ -54,13 +54,13 @@ const AdminSidebar = () => {
           className={`sidebar-item ${isActive("/active-users")}`}
           onClick={() => navigate("/active-users")}
         >
-          <FaCheckCircle className="sidebar-icon" /> Active Users
+          <FaUserCheck className="sidebar-icon" /> Active Users
         </li>
         <li
           className={`sidebar-item ${isActive("/disabled-users")}`}
           onClick={() => navigate("/disabled-users")}
         >
-          <FaBan className="sidebar-icon" /> Disabled Users
+          <FaUserTimes className="sidebar-icon" /> Disabled Users
         </li>
         <li
           className={`sidebar-item ${isActive("/all-stores")}`}
