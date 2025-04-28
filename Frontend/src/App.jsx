@@ -27,9 +27,15 @@ import { Tooltip } from "react-tooltip";
 import "./App.css";
 import Detail from "./components/DetailPage/Detail";
 import Register from "./components/Register/Register";
-import AdminDashboard from "./components/Admin/AdminDashboard";
-import AdminLogin from "./components/Admin/AdminLogin";
+import AdminDashboard from "./components/AdminPanel/AdminDashboard";
+import AdminLogin from "./components/AdminPanel/AdminLogin";
 import TopSelling from "./Pages/TopSelling";
+import AllUsers from "./components/AdminPanel/AllUsers";
+import AdminSidebar from "./components/AdminPanel/AdminSidebar";
+import PendingRequests from "./components/AdminPanel/PendingUsers";
+import ActiveUsers from "./components/AdminPanel/ActiveUsers";
+import DisabledUsers from "./components/AdminPanel/DisabledUsers";
+import AllStores from "./components/AdminPanel/AllStores";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -53,6 +59,18 @@ const Layout = ({ children }) => {
           </div>
         </Tooltip>
       </div>
+    </div>
+  );
+};
+
+const AdminLayout = ({ children }) => {
+  const location = useLocation();
+  const isLoginPage = location.pathname === "/admin";
+
+  return (
+    <div className="app-container">
+      {!isLoginPage && <AdminSidebar />}
+      <div className="admin-content">{children}</div>
     </div>
   );
 };
@@ -148,7 +166,59 @@ const App = () => {
           path="/store-detail"
           element={
             <AdminProtectedRoute>
-              <Detail />
+              <AdminLayout>
+                <Detail />
+              </AdminLayout>
+            </AdminProtectedRoute>
+          }
+        />
+        <Route
+          path="/all-users"
+          element={
+            <AdminProtectedRoute>
+              <AdminLayout>
+                <AllUsers />
+              </AdminLayout>
+            </AdminProtectedRoute>
+          }
+        />
+        <Route
+          path="/pending-users"
+          element={
+            <AdminProtectedRoute>
+              <AdminLayout>
+                <PendingRequests />
+              </AdminLayout>
+            </AdminProtectedRoute>
+          }
+        />
+        <Route
+          path="/active-users"
+          element={
+            <AdminProtectedRoute>
+              <AdminLayout>
+                <ActiveUsers />
+              </AdminLayout>
+            </AdminProtectedRoute>
+          }
+        />
+        <Route
+          path="/disabled-users"
+          element={
+            <AdminProtectedRoute>
+              <AdminLayout>
+                <DisabledUsers />
+              </AdminLayout>
+            </AdminProtectedRoute>
+          }
+        />
+        <Route
+          path="/all-stores"
+          element={
+            <AdminProtectedRoute>
+              <AdminLayout>
+                <AllStores />
+              </AdminLayout>
             </AdminProtectedRoute>
           }
         />

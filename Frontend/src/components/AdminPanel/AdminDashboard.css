@@ -1,0 +1,55 @@
+/* Admin Panel Container */
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.admin-dashboard-cards {
+  margin-left: 120px;
+}
+
+.admin-panel-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #1e1e2f;
+  text-align: center;
+}
+
+/* Table */
+.admin-panel-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+/* Buttons */
+.admin-panel-btn {
+  padding: 6px 12px;
+  margin: 4px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s ease-in-out;
+}
+/* Unique colors for each icon */
+.all-users {
+  color: #2196f3; /* Blue for All Users */
+}
+
+.pending-requests {
+  color: #f39c12; /* Golden yellow for Pending Requests */
+}
+
+.active-users {
+  color: #28a745; /* Green for Active Users */
+}
+
+.disabled-users {
+  color: #dc3545; /* Red for Disabled Users */
+}
+
+.total-stores {
+  color: #ffc107; /* Yellow for Total Stores */
+}

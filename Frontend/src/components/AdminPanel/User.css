@@ -1,0 +1,29 @@
+/* Approve Button */
+.admin-panel-btn.approve {
+  background-color: #28a745; /* Lighter green for approve */
+  color: white;
+}
+
+.admin-panel-btn.approve:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Pending Button */
+.admin-panel-btn.pending {
+  background-color: #f39c12; /* Golden yellow for pending */
+  color: white;
+}
+
+.admin-panel-btn.pending:hover {
+  background-color: #e67e22; /* Darker orange for hover */
+}
+
+/* Disable Button */
+.admin-panel-btn.disable {
+  background-color: #d9534f; /* Red color for disable */
+  color: white;
+}
+
+.admin-panel-btn.disable:hover {
+  background-color: #c9302c; /* Darker red on hover */
+}

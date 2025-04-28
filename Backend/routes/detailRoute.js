@@ -76,18 +76,26 @@ router.put("/updateDetail", upload.single("logo"), async (req, res) => {
     }
 
     // Proceed with store detail updates
-    if (storeName) existingDetail.storeName = storeName;
+    if (storeName) {
+      existingDetail.storeName = storeName;
+      // Also update storeName in Login model
+      user.storeName = storeName;
+    }
     if (contactNo) existingDetail.contactNo = contactNo;
     if (email) existingDetail.email = email;
     if (address) existingDetail.address = address;
     if (logo) existingDetail.logo = logo;
 
+    // Save both models
     await existingDetail.save();
+    await user.save();
+
     res.json({
       message: "Store details updated successfully",
       detail: existingDetail,
     });
   } catch (err) {
+    console.error("Error updating store details:", err);
     res.status(500).json({ error: "Error updating store details" });
   }
 });
@@ -99,6 +107,34 @@ router.get("/getDetail", async (req, res) => {
     res.json(details);
   } catch (err) {
     res.status(500).json({ error: "Error fetching store details" });
+  }
+});
+
+// GET total stores
+router.get("/getTotalStores", async (req, res) => {
+  try {
+    const totalStores = await Detail.countDocuments(); // Count total documents in Detail collection
+    res.json({ totalStores });
+  } catch (err) {
+    console.error("Error fetching total store count:", err);
+    res.status(500).json({ error: "Error fetching store count" });
+  }
+});
+
+// DELETE Store
+router.delete("/deleteStore/:id", async (req, res) => {
+  const { id } = req.params; // Get the store ID from the request parameters
+  try {
+    // Find the store by its ID and remove it
+    const deletedStore = await Detail.findByIdAndDelete(id);
+
+    if (!deletedStore) {
+      return res.status(404).json({ error: "Store not found" }); // If no store is found with the provided ID
+    }
+
+    res.status(200).json({ message: "Store deleted successfully" }); // Respond with success
+  } catch (err) {
+    res.status(500).json({ error: "Error deleting store" }); // Handle errors
   }
 });
 

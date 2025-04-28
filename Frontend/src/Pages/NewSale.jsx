@@ -334,151 +334,173 @@ const Newsale = () => {
     };
 
     const printContent = `
-  <html>
-  <head>
-    <style>
-      @media print {
-        @page {
-          size: 80mm auto;
-          margin: 0;
-        }
-
-        body {
-          margin: 0;
-          padding: 0;
-          width: 72mm;
-        }
-      }
-
-      body {
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 12px;
-        width: 72mm;
-        margin: auto;
-        padding: 10px;
-      }
-
-      .receipt-container {
-    width: 66mm;  
-    margin: 0 auto;  
-    padding: 5mm;  
-    border: 1px dashed #ccc;  
-  }
-
-      .center { text-align: center; }
-      .right { text-align: right; }
-      hr {
-        border: none;
-        border-top: 1px dashed #000;
-        margin: 10px 0;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-
-      th, td {
-        padding: 2px 0;
-        font-size: 12px;
-      }
-
-      th {
-        border-bottom: 1px dashed #000;
-        text-align: left;
-      }
-    </style>
-  </head>
-  <body>
-    <div>
-    <div class="receipt-container">
-     <div style="text-align: center; margin-bottom: 10px;">
-          <img
-            src="http://localhost:5000${storeDetails.logo}"
-            alt="Company Logo"
-            style="width: 80px; height: 80px; border: 1px solid #000; border-radius: 50%; object-fit: cover;"
-            onError="this.onerror=null;this.src='${logo}';"
-          />
-        </div>
-
-
-        <h3 style="text-align: center; margin: 0; font-size: 16px; text-transform: uppercase;">
-          ${storeDetails.storeName}
-        </h3>
-        <p style="text-align: center; margin: 5px 0; font-size: 12px;">Phone: ${
-          storeDetails.contactNo
-        }</p>
-        <p style="text-align: center; margin: 0; font-size: 10px;">Email: ${
-          storeDetails.email
-        }</p>
-        <p style="text-align: center; margin: 5px 0; font-size: 12px;">Address: ${
-          storeDetails.address
-        }</p>
-
-      <hr />
-      <p><strong>Invoice No:</strong> ${invoice?.invoiceNo ?? "N/A"}</p>
-      <p><strong>Customer Name:</strong> ${invoice.customerName}</p>
-      <p><strong>Contact:</strong> ${invoice.customerContactNo}</p>
-      <p><strong>Date:</strong> ${formatDate(invoice?.createdAt)}</p>
-      <p><strong>Time:</strong> ${formatTime()}</p>
-       <p><strong>Billed By:</strong> ${invoice?.billedBy ?? "N/A"}</p>
-
-      <hr />
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th style="text-align: center;">Qty</th>
-            <th style="text-align: right;">Price</th>
-            <th style="text-align: right;">Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${
-            items.length > 0
-              ? items
-                  .map(
-                    (item) => `
-                    <tr>
-                      <td>${item.ProductName}</td>
-                      <td style="text-align: center;">${item.Quantity}</td>
-                      <td style="text-align: right;">${item.RetailPrice}</td>
-                      <td style="text-align: right;">${(
-                        item.RetailPrice * item.Quantity
-                      ).toFixed(2)}</td>
-                    </tr>`
-                  )
-                  .join("")
-              : `<tr><td colspan="4" style="text-align: center;">No items</td></tr>`
-          }
-        </tbody>
-      </table>
-
-      <hr />
-      <p class="right"><strong>Total:</strong> Rs. ${invoice.totalAmount}</p>
-      <p class="right"><strong>Service Charges:</strong> Rs. ${
-        invoice.serviceCharges || "0.00"
-      }</p>
-      <p class="right"><strong>Grand Total:</strong> Rs. ${
-        invoice.netTotal || invoice.totalAmount
-      }</p>
-
-      <hr />
-      <p class="right"><strong>Customer Paid:</strong> Rs. ${
-        invoice.paidAmount || "0.00"
-      }</p>
-      <p class="right"><strong>Change Amount:</strong> Rs. ${
-        invoice.changeAmount || "0.00"
-      }</p>
-
-      <hr />
-      <p class="center">Thank you for your visit!</p>
-      <p class="center" style="font-size: 10px;">This is a computer-generated invoice.</p>
-    </div>
-    </div>
-  </body>
-  </html>
-`;
+        <html>
+        <head>
+          <style>
+   @media print {
+     @page {
+       size: 80mm auto;
+       margin: 0;
+     }
+ 
+     body {
+       margin: 0;
+       padding: 0;
+       width: 72mm;
+       font-size: 12px;
+       line-height: 1.2; /* Control the line height to reduce space */
+     }
+   }
+ 
+   body {
+     font-family: 'Courier New', Courier, monospace;
+     font-size: 12px;
+     width: 72mm;
+     margin: auto;
+     padding: 5mm;  /* Reduced padding */
+     line-height: 1.2;  /* Adjusted line height */
+   }
+ 
+   .receipt-container {
+     width: 66mm;  
+     margin: 0 auto;  
+     padding: 5mm;  
+     border: 1px dashed #ccc;  
+   }
+ 
+   .center { 
+     text-align: center; 
+   }
+   .right { 
+     text-align: right; 
+   }
+   
+   hr {
+     border: none;
+     border-top: 1px dashed #000;
+     margin: 8px 0;  /* Reduced space between the hr line */
+   }
+ 
+   table {
+     width: 100%;
+     border-collapse: collapse;
+     margin: 5px 0; /* Reduce space between table rows */
+   }
+ 
+   th, td {
+     padding: 2px 0;
+     font-size: 12px;
+     line-height: 1.2;  /* Adjusted line height for table content */
+   }
+ 
+   th {
+     border-bottom: 1px dashed #000;
+     text-align: left;
+   }
+ 
+   p {
+     margin: 3px 0;  /* Reduced space between paragraphs */
+     line-height: 1.2;  /* Adjusted line height for paragraphs */
+   }
+ </style>
+ 
+        </head>
+        <body>
+          <div>
+          <div class="receipt-container">
+           <div style="text-align: center; margin-bottom: 10px;">
+           <img
+             src="http://localhost:5000${storeDetails.logo}"
+             alt="Company Logo"
+             style="width: 80px; height: 80px; border: 1px solid #000; border-radius: 50%; object-fit: cover;"
+             onError="this.onerror=null;this.src='${logo}';"
+           />
+         </div>
+      
+      
+              <h3 style="text-align: center; margin: 0; font-size: 16px; text-transform: uppercase;">
+                ${storeDetails.storeName}
+              </h3>
+              <p style="text-align: center; margin: 5px 0; font-size: 12px;">Phone: ${
+                storeDetails.contactNo
+              }</p>
+              <p style="text-align: center; margin: 0; font-size: 10px;">Email: ${
+                storeDetails.email
+              }</p>
+              <p style="text-align: center; margin: 5px 0; font-size: 12px;">Address: ${
+                storeDetails.address
+              }</p>
+      
+              <hr />
+              <p><strong>Invoice No:</strong> ${invoice?.invoiceNo ?? "N/A"}</p>
+            <p><strong>Customer Name:</strong> ${invoice.customerName}</p>
+            <p><strong>Contact:</strong> ${invoice.customerContactNo}</p>
+            <p><strong>Date:</strong> ${formatDate(invoice?.createdAt)}</p>
+            <p><strong>Time:</strong> ${formatTime()}</p>
+             <p><strong>Billed By:</strong> ${invoice?.billedBy ?? "N/A"}</p>
+      
+            <hr />
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th style="text-align: center;">Qty</th>
+                  <th style="text-align: right;">Price</th>
+                  <th style="text-align: right;">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${
+                  items.length > 0
+                    ? items
+                        .map(
+                          (item) => `
+                          <tr>
+                            <td>${item.ProductName}</td>
+                            <td style="text-align: center;">${
+                              item.Quantity
+                            }</td>
+                            <td style="text-align: right;">${
+                              item.RetailPrice
+                            }</td>
+                            <td style="text-align: right;">${(
+                              item.RetailPrice * item.Quantity
+                            ).toFixed(2)}</td>
+                          </tr>`
+                        )
+                        .join("")
+                    : `<tr><td colspan="4" style="text-align: center;">No items</td></tr>`
+                }
+              </tbody>
+            </table>
+      
+            <hr />
+            <p class="right"><strong>Total:</strong> Rs. ${
+              invoice.totalAmount
+            }</p>
+            <p class="right"><strong>Service Charges:</strong> Rs. ${
+              invoice.serviceCharges || "0.00"
+            }</p>
+            <p class="right"><strong>Grand Total:</strong> Rs. ${
+              invoice.netTotal || invoice.totalAmount
+            }</p>
+      
+            <hr />
+            <p class="right"><strong>Customer Paid:</strong> Rs. ${
+              invoice.paidAmount || "0.00"
+            }</p>
+            <p class="right"><strong>Change Amount:</strong> Rs. ${
+              invoice.changeAmount || "0.00"
+            }</p>
+      
+            <hr />
+            <p class="center">Thank you for your visit!</p>
+            <p class="center" style="font-size: 10px;">This is a computer-generated invoice.</p>
+          </div>
+          </div>
+        </body>
+        </html>
+      `;
 
     const printWindow = window.open("", "_blank", "height=600,width=400");
     if (!printWindow) {
@@ -996,11 +1018,13 @@ const Newsale = () => {
                 {invoiceId ? (
                   <button
                     id="updateInvoiceButton"
-                    className="modal-submit-btn update-btn"
+                    className={`modal-submit-btn update-btn ${
+                      paidAmount >= getTotalPrice() && !isNaN(paidAmount)
+                        ? "enabled-btn"
+                        : "disabled-btn"
+                    }`}
                     onClick={() => handleUpdateInvoice(customerDetails)}
-                    disabled={
-                      paidAmount <= getTotalPrice() || isNaN(paidAmount)
-                    }
+                    disabled={paidAmount < getTotalPrice() || isNaN(paidAmount)}
                   >
                     Update Invoice
                   </button>
@@ -1008,7 +1032,9 @@ const Newsale = () => {
                   <button
                     id="confirmPaymentButton"
                     className={`modal-submit-btn confirm-btn ${
-                      paidAmount > getTotalPrice()
+                      paidAmount >= getTotalPrice() &&
+                      !isNaN(paidAmount) &&
+                      paidAmount !== ""
                         ? "enabled-btn"
                         : "disabled-btn"
                     }`}

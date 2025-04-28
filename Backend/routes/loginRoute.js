@@ -186,6 +186,17 @@ router.get("/getusers", async (req, res) => {
   }
 });
 
+// GET total number of users
+router.get("/gettotalusers", async (req, res) => {
+  try {
+    const totalUsers = await Login.countDocuments(); // Count all documents in the Login collection
+    res.json({ totalUsers });
+  } catch (error) {
+    console.error("Error fetching total user count:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
 // Update User Status (Admin Route)
 router.put("/updateStatus", async (req, res) => {
   try {
@@ -210,6 +221,47 @@ router.put("/updateStatus", async (req, res) => {
     });
   } catch (error) {
     console.error("Error updating user status:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+router.get("/getUserStatusStats", async (req, res) => {
+  try {
+    // Count users based on their status
+    const totalPendingRequests = await Login.countDocuments({
+      status: "pending",
+    });
+    const totalActiveUsers = await Login.countDocuments({ status: "active" });
+    const totalDisabledUsers = await Login.countDocuments({
+      status: "disabled",
+    });
+
+    res.json({
+      totalPendingRequests,
+      totalActiveUsers,
+      totalDisabledUsers,
+    });
+  } catch (error) {
+    console.error("Error fetching user statistics:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+// Delete User (Admin Route)
+router.delete("/deleteuser/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Find and delete the user by ID
+    const user = await Login.findByIdAndDelete(id);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json({ message: "User deleted successfully", user });
+  } catch (error) {
+    console.error("Error deleting user:", error);
     res.status(500).json({ message: "Server error", error: error.message });
   }
 });
