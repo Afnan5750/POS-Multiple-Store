@@ -178,6 +178,46 @@ router.get("/getproducts", async (req, res) => {
   }
 });
 
+// Get Number of Products by Store
+router.get("/getproductbystore", async (req, res) => {
+  try {
+    const productsByStore = await Product.aggregate([
+      {
+        $group: {
+          _id: "$storeId", // Group by storeId
+          productCount: { $sum: 1 },
+        },
+      },
+      {
+        $lookup: {
+          from: "details", // collection name in MongoDB (lowercase + plural)
+          localField: "_id",
+          foreignField: "_id",
+          as: "storeDetails",
+        },
+      },
+      {
+        $unwind: {
+          path: "$storeDetails",
+          preserveNullAndEmptyArrays: true,
+        },
+      },
+      {
+        $project: {
+          _id: 0,
+          storeId: "$_id",
+          storeName: "$storeDetails.name", // assuming Detail model has a `name` field
+          productCount: 1,
+        },
+      },
+    ]);
+
+    res.status(200).json({ productsByStore });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Get Login user's products
 router.get("/getproduct", authenticate, async (req, res) => {
   try {

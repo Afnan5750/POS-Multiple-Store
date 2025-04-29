@@ -8,18 +8,35 @@ const AllStores = () => {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    const fetchStores = async () => {
+    const fetchStoresAndProducts = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:5000/api/detail/getDetail"
-        );
-        setStores(res.data);
+        const [storesRes, productsRes] = await Promise.all([
+          axios.get("http://localhost:5000/api/detail/getDetail"),
+          axios.get("http://localhost:5000/api/product/getproductbystore"),
+        ]);
+
+        const storesData = storesRes.data;
+        const productsData = productsRes.data.productsByStore;
+
+        // Create a map of storeId to productCount
+        const productCountMap = {};
+        productsData.forEach((item) => {
+          productCountMap[item.storeId] = item.productCount;
+        });
+
+        // Merge product counts into stores
+        const mergedStores = storesData.map((store) => ({
+          ...store,
+          productCount: productCountMap[store._id] || 0, // default to 0 if no products
+        }));
+
+        setStores(mergedStores);
       } catch (error) {
-        console.error("Error fetching stores:", error);
+        console.error("Error fetching stores or products:", error);
       }
     };
 
-    fetchStores();
+    fetchStoresAndProducts();
   }, []);
 
   const handleDeleteStore = async (id) => {
@@ -33,7 +50,6 @@ const AllStores = () => {
           `http://localhost:5000/api/detail/deleteStore/${id}`
         );
 
-        // Remove the deleted store from the state
         setStores((prevStores) =>
           prevStores.filter((store) => store._id !== id)
         );
@@ -103,6 +119,11 @@ const AllStores = () => {
           }}
         />
       ),
+      sortable: true,
+    },
+    {
+      name: "Total Products",
+      selector: (row) => row.productCount || 0,
       sortable: true,
     },
     {

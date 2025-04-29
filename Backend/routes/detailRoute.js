@@ -121,21 +121,67 @@ router.get("/getTotalStores", async (req, res) => {
   }
 });
 
-// DELETE Store
+// DELETE Store and disable its users
 router.delete("/deleteStore/:id", async (req, res) => {
-  const { id } = req.params; // Get the store ID from the request parameters
+  const { id } = req.params;
+
   try {
-    // Find the store by its ID and remove it
+    // Disable all users associated with the store
+    const updatedUsers = await Login.updateMany(
+      { storeId: id },
+      { $set: { status: "disabled" } }
+    );
+
+    if (updatedUsers.modifiedCount > 0) {
+      console.log(`${updatedUsers.modifiedCount} user(s) disabled`);
+    } else {
+      console.log("No users found for this store");
+    }
+
+    // Delete the store
     const deletedStore = await Detail.findByIdAndDelete(id);
 
     if (!deletedStore) {
-      return res.status(404).json({ error: "Store not found" }); // If no store is found with the provided ID
+      return res.status(404).json({ error: "Store not found" });
     }
 
-    res.status(200).json({ message: "Store deleted successfully" }); // Respond with success
+    res.status(200).json({
+      message: "Store deleted and associated users disabled successfully",
+    });
   } catch (err) {
-    res.status(500).json({ error: "Error deleting store" }); // Handle errors
+    console.error("Error deleting store and disabling users:", err);
+    res.status(500).json({ error: "Error deleting store and users" });
   }
 });
+
+// DELETE Store and its users
+// router.delete("/deleteStore/:id", async (req, res) => {
+//   const { id } = req.params;
+
+//   try {
+//     // First, delete all users associated with the store
+//     const deletedUsers = await Login.deleteMany({ storeId: id });
+
+//     if (deletedUsers.deletedCount > 0) {
+//       console.log(`${deletedUsers.deletedCount} user(s) deleted`);
+//     } else {
+//       console.log("No users found for this store");
+//     }
+
+//     // Now, delete the store
+//     const deletedStore = await Detail.findByIdAndDelete(id);
+
+//     if (!deletedStore) {
+//       return res.status(404).json({ error: "Store not found" });
+//     }
+
+//     res.status(200).json({
+//       message: "Store and its associated users deleted successfully",
+//     });
+//   } catch (err) {
+//     console.error("Error deleting store and users:", err);
+//     res.status(500).json({ error: "Error deleting store and users" });
+//   }
+// });
 
 module.exports = router;
