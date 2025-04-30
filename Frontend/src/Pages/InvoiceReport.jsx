@@ -230,7 +230,7 @@ const InvoiceReport = () => {
             <img
               src="http://localhost:5000${storeDetails.logo}"
               alt="Company Logo"
-              style="width: 80px; height: 80px; border: 1px solid #000; border-radius: 50%; object-fit: cover;"
+              style="width: 80px; height: 80px; border: 1px solid #000; border-radius: 50%; object-fit: cover; filter: brightness(0) invert(0);"
               onError="this.onerror=null;this.src='${logo}';"
             />
           </div>

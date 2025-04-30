@@ -412,7 +412,7 @@ const Newsale = () => {
            <img
              src="http://localhost:5000${storeDetails.logo}"
              alt="Company Logo"
-             style="width: 80px; height: 80px; border: 1px solid #000; border-radius: 50%; object-fit: cover;"
+             style="width: 80px; height: 80px; border: 1px solid #000; border-radius: 50%; object-fit: cover; filter: brightness(0) invert(0); "
              onError="this.onerror=null;this.src='${logo}';"
            />
          </div>
@@ -936,14 +936,14 @@ const Newsale = () => {
                 className="modal-submit-btn update-btn"
                 onClick={() => setIsModalOpen(true)}
               >
-                Update<span className="shortcut">P</span>
+                Update<span className="shortcut">Ctrl + P</span>
               </button>
             ) : (
               <button
                 className="modal-submit-btn pay-btn"
                 onClick={() => setIsModalOpen(true)}
               >
-                Pay <span className="shortcut">P</span>
+                Pay <span className="shortcut">Ctrl + P</span>
               </button>
             )}
           </>
@@ -1031,7 +1031,7 @@ const Newsale = () => {
                     onClick={() => handleUpdateInvoice(customerDetails)}
                     disabled={paidAmount < getTotalPrice() || isNaN(paidAmount)}
                   >
-                    Update Invoice
+                    Update Invoice <span className="shortcut">Enter</span>
                   </button>
                 ) : (
                   <button
@@ -1050,7 +1050,7 @@ const Newsale = () => {
                       paidAmount === ""
                     }
                   >
-                    Confirm Payment
+                    Confirm Payment <span className="shortcut">Enter</span>
                   </button>
                 )}
               </div>
