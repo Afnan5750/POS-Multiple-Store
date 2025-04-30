@@ -512,6 +512,10 @@ const Newsale = () => {
     printWindow.document.close();
 
     setTimeout(() => {
+      printWindow.onafterprint = function () {
+        window.location.reload();
+      };
+
       const printResult = printWindow.print();
       if (printResult !== false) {
         printWindow.close();
@@ -669,6 +673,7 @@ const Newsale = () => {
       invoiceNo: invoiceNo || 0,
       totalProfit,
       items: updatedItems,
+      billedBy: username,
     };
 
     try {
@@ -727,7 +732,7 @@ const Newsale = () => {
 
   // Keyboard Shortcuts
   const handleKeyPress = (e) => {
-    if (e.key.toLowerCase() === "p") {
+    if (e.ctrlKey && e.key.toLowerCase() === "p") {
       e.preventDefault();
       document.querySelector(".modal-submit-btn")?.click();
     }

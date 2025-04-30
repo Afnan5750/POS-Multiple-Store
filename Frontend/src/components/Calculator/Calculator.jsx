@@ -8,10 +8,11 @@ const Calculator = () => {
 
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if (e.altKey && e.key.toLowerCase() === "c") {
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "c") {
         e.preventDefault();
         setShow((prev) => !prev);
       }
+
       if (e.key === "Escape") {
         setShow(false);
       }

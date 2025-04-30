@@ -220,7 +220,7 @@ const Profile = () => {
         setEditing((prevEditing) => !prevEditing);
       }
 
-      if (event.altKey && event.key.toLowerCase() === "e") {
+      if (event.shiftKey && event.key.toLowerCase() === "e") {
         event.preventDefault(); // Open Change Password
         setIsPasswordEditing(true);
       }
@@ -382,7 +382,7 @@ const Profile = () => {
             className="profile-edit-btn"
             onClick={() => setIsPasswordEditing(true)}
           >
-            Change Password <span className="shortcut">Alt + E</span>
+            Change Password <span className="shortcut">Shift + E</span>
           </button>
         )}
 

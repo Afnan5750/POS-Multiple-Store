@@ -112,7 +112,7 @@ const Sidebar = () => {
           <Link to="/dashboard" className="sidebar-link">
             <FaTachometerAlt className="sidebar-icon" />
             <span className="sidebar-text">Dashboard</span>
-            <span className="shortcut">Shift + D</span>
+            <span className="shortcut">Alt + D</span>
           </Link>
         </li>
 
@@ -140,7 +140,7 @@ const Sidebar = () => {
             <Link to="/sales/new-sale" className="sidebar-link">
               <FaShoppingCart className="sidebar-icon small-icon" />
               <span className="sidebar-text">New Sale</span>
-              <span className="shortcut">Shift + N</span>
+              <span className="shortcut">Alt + N</span>
             </Link>
           </li>
           <li
@@ -151,7 +151,7 @@ const Sidebar = () => {
             <Link to="/sales/invoices" className="sidebar-link">
               <FaFileInvoice className="sidebar-icon small-icon" />
               <span className="sidebar-text">Invoices</span>
-              <span className="shortcut">Shift + I</span>
+              <span className="shortcut">Alt + I</span>
             </Link>
           </li>
         </ul>
@@ -183,7 +183,7 @@ const Sidebar = () => {
             <Link to="/inventory/products" className="sidebar-link">
               <FaBoxes className="sidebar-icon small-icon" />
               <span className="sidebar-text">Products</span>
-              <span className="shortcut">Shift + P</span>
+              <span className="shortcut">Alt + P</span>
             </Link>
           </li>
           <li
@@ -194,7 +194,7 @@ const Sidebar = () => {
             <Link to="/inventory/category" className="sidebar-link">
               <FaThList className="sidebar-icon small-icon" />
               <span className="sidebar-text">Category</span>
-              <span className="shortcut">Shift + C</span>
+              <span className="shortcut">Alt + C</span>
             </Link>
           </li>
           <li
@@ -207,7 +207,7 @@ const Sidebar = () => {
             <Link to="/inventory/expired-products" className="sidebar-link">
               <FaExclamationTriangle className="sidebar-icon small-icon" />
               <span className="sidebar-text">Expired Products</span>
-              <span className="shortcut">Shift + E</span>
+              <span className="shortcut">Alt + E</span>
             </Link>
           </li>
           <li
@@ -218,7 +218,7 @@ const Sidebar = () => {
             <Link to="/inventory/low-stock" className="sidebar-link">
               <FaExclamationCircle className="sidebar-icon small-icon" />
               <span className="sidebar-text">Low Stock</span>
-              <span className="shortcut">Shift + L</span>
+              <span className="shortcut">Alt + L</span>
             </Link>
           </li>
         </ul>
@@ -242,7 +242,7 @@ const Sidebar = () => {
           <Link to="/price-checker" className="sidebar-link">
             <FaTag className="sidebar-icon" /> {/* Price Tag Icon */}
             <span className="sidebar-text">Price Checker</span>
-            <span className="shortcut">Alt + P</span>
+            <span className="shortcut">Ctrl + Alt + P</span>
           </Link>
         </li>
 
@@ -295,7 +295,7 @@ const Sidebar = () => {
             <Link to="/reports/invoice-reports" className="sidebar-link">
               <FaFileInvoiceDollar className="sidebar-icon small-icon" />
               <span className="sidebar-text">Invoice Reports</span>
-              <span className="shortcut">Alt + I</span>
+              <span className="shortcut">Ctrl + Alt + I</span>
             </Link>
           </li>
           <li

@@ -54,8 +54,8 @@ const Layout = ({ children }) => {
             for Keyboard Shortcuts
           </div>
           <div>
-            Press <span style={{ fontWeight: "bold" }}>Alt + C</span> to Open
-            Calculator
+            Press <span style={{ fontWeight: "bold" }}>Ctrl + Shift + C</span>{" "}
+            to Open Calculator
           </div>
         </Tooltip>
       </div>
@@ -80,39 +80,40 @@ const App = () => {
 
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if (e.shiftKey && e.key.toLowerCase() === "i") {
-        e.preventDefault();
-        navigate("/sales/invoices");
-      }
-      if (e.shiftKey && e.key.toLowerCase() === "d") {
+      if (e.altKey && e.key.toLowerCase() === "d") {
         e.preventDefault();
         navigate("/dashboard");
       }
-      if (e.shiftKey && e.key.toLowerCase() === "n") {
+      if (e.altKey && e.key.toLowerCase() === "n") {
         e.preventDefault();
         navigate("/sales/new-sale");
       }
-      if (e.shiftKey && e.key.toLowerCase() === "p") {
+      if (e.altKey && e.key.toLowerCase() === "i") {
         e.preventDefault();
-        navigate("/inventory/products");
-      }
-      if (e.shiftKey && e.key.toLowerCase() === "c") {
-        e.preventDefault();
-        navigate("/inventory/category");
-      }
-      if (e.shiftKey && e.key.toLowerCase() === "e") {
-        e.preventDefault();
-        navigate("/inventory/expired-products");
-      }
-      if (e.shiftKey && e.key.toLowerCase() === "l") {
-        e.preventDefault();
-        navigate("/inventory/low-stock");
+        navigate("/sales/invoices");
       }
       if (e.altKey && e.key.toLowerCase() === "p") {
         e.preventDefault();
+        navigate("/inventory/products");
+      }
+      if (e.altKey && e.key.toLowerCase() === "c") {
+        e.preventDefault();
+        navigate("/inventory/category");
+      }
+      if (e.altKey && e.key.toLowerCase() === "e") {
+        e.preventDefault();
+        navigate("/inventory/expired-products");
+      }
+      if (e.altKey && e.key.toLowerCase() === "l") {
+        e.preventDefault();
+        navigate("/inventory/low-stock");
+      }
+      if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "p") {
+        e.preventDefault();
         navigate("/price-checker");
       }
-      if (e.altKey && e.key.toLowerCase() === "i") {
+
+      if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "i") {
         e.preventDefault();
         navigate("/reports/invoice-reports");
       }
